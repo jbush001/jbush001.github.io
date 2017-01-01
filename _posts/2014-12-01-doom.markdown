@@ -1,0 +1,96 @@
+---
+layout: post
+title: Doom
+date: '2014-12-01T22:37:00.000-08:00'
+author: Jeff
+tags:
+- simulation
+- verilog
+- doom
+modified_time: '2016-01-06T21:36:51.914-08:00'
+thumbnail: http://4.bp.blogspot.com/-2AGiN1ztWbg/VH1VC597ijI/AAAAAAAABuY/ZyzIIcP8mi4/s72-c/Screen%2BShot%2B2014-12-01%2Bat%2B9.58.14%2BPM.png
+blogger_id: tag:blogger.com,1999:blog-5853447763770338628.post-5232711682420685657
+blogger_orig_url: http://latchup.blogspot.com/2014/12/doom.html
+---
+
+How many instructions does a processor need to execute to get through the
+first level of Doom?  About 2.7 billion, in my case.  Over the course of the
+several minutes it took me to stumble through the level, it rendered about
+1080 frames, each of which required about 2.5 million instructions to produce.
+The other 700 million instructions initialized the game, loading textures,
+setting up data structures, etc.
+
+I ported Doom to my [GPGPU
+processor](https://github.com/jbush001/NyuziProcessor) recently. While it
+doesn't use advanced hardware features of this architecture like hardware
+multithreading, SIMD, or even floating point, it is a good test of the
+toolchain and libraries, being substantially larger than other test programs
+I've run.  It did shake out some good bugs.
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube.com/embed/djR_44OvYcU?rel=0&amp;showinfo=0" width="420"></iframe>
+*I forgot how much I sucked at this game*
+
+The nice thing about the instruction set simulator (emulator) is that I can
+instrument at a fairly fine grained level.  Here is breakdown of instructions
+by type:
+
+![]({{ site.url }}/assets/2014-12-01-image-0000.png)
+
+Interestingly, this matches the instruction profile of the 3D teapot renderer
+I wrote within a few percent:
+
+|----|----|
+| load | 22.71% |
+| store | 10.67% |
+| branch | 11.81% |
+| arithmetic | 54.45% |
+
+I would have expected a program designed for a different generation of
+hardware to have a different instruction profile (for example, Doom uses
+lookup tables heavily, which I'd presume would make it more weighted towards
+memory loads). However, that doesn't seem to be the case. Perhaps the
+instruction distribution is influenced more by the compiler.
+
+The simulator gets around 8 frames per second on my Core i5 laptop.  That
+means it's executing around 20 million instructions per second on average.
+The simulator isn't optimized, as I've mostly targeted it as a reference for
+co-verification of the hardware model, so that's not too bad, I guess.
+
+However, it's a speed demon compared to the cycle accurate Verilog simulation,
+which shlumps along at the equivalent of 73kHz on my laptop. This is no fault
+of [Verilator](http://www.veripool.org/wiki/verilator), the open source tool
+I'm using to compile the model, which is actually very fast relative to other
+simulators. It's just simulating the model at a high level of detail. I
+managed to get it to initialize and render the first frame of the level over
+the course of an hour and 20 minutes.  During that time, it executed around
+353 million clock cycles.
+
+|----|----|
+| total cycles         | 353,708,911 |
+| l2_writeback         | 88,342 |
+| l2_miss              | 121,008 |
+| l2_hit               | 4,505,554 |
+| store rollback count | 2,200,227 |
+| store count          | 6,519,751 |
+| instruction_retire   | 77,984,252 |
+| instruction_issue    | 93,883,016 |
+| l1i_miss             | 2,133 |
+| l1i_hit              | 158,202,234 |
+| l1d_miss             | 304,961 |
+| l1d_hit              | 9,045,137 |
+
+
+
+The performance is pretty crummy. It only issues instructions about 26% of
+clock cycles, the rest being idle, presumably because it is waiting on memory.
+Of the issued instructions, only 83% are retired. It ends up rolling back the
+rest because they were speculatively issued and couldn't complete.
+
+I'd estimate it would get a little over 5 frames per second running on FPGA at
+50Mhz.  This architecture depends on hardware threading to hide latency and
+makes little effort otherwise to minimize it. It's designed for highly
+parallel workloads.  If the game utilized a real 3D renderer, those threads
+could be put to work rendering the scene in parallel.
+
+
+
