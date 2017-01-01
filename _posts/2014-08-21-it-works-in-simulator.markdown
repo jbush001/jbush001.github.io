@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '"It works in the simulator..."'
+title: '"It Works in the Simulator..."'
 date: '2014-08-21T22:04:00.000-07:00'
 author: Jeff
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Keeping score
+title: Keeping Score
 date: '2014-05-27T21:43:00.000-07:00'
 author: Jeff
 tags:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Faster than light
+title: Faster Than Light
 date: '2014-06-06T09:16:00.000-07:00'
 author: Jeff
 tags:

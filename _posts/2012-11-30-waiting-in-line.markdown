@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Waiting in line...
+title: Waiting in Line...
 date: '2012-11-30T21:58:00.003-08:00'
 author: Jeff
 tags:

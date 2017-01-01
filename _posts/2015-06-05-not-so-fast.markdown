@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Not so fast
+title: Not So Fast
 date: '2015-06-05T09:27:00.001-07:00'
 author: Jeff
 tags:

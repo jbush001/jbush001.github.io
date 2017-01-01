@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Improved 3D engine profile
+title: Improved 3D Engine Profile
 date: '2015-02-21T09:29:00.003-08:00'
 author: Jeff
 tags:

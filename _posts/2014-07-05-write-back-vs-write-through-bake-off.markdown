@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Write-back vs. write through bake-off
+title: Write Back vs. Write Through Bake Off
 date: '2014-07-05T16:57:00.002-07:00'
 author: Jeff
 tags:
