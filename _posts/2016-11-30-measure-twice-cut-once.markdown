@@ -49,7 +49,7 @@ of implicit consistency guarantees.
 
 Each store queue entry can be in one of these states:
 
-![]({{ site.url }}/assets/2016-11-30-image-0000.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0000.png)
 
 *(These identifiers don't appear in the HDL code: the state is encoded by each
 entry's 'valid' and 'request_sent' bits. I only use these identifiers in this
@@ -63,7 +63,7 @@ data cache. Each type can enqueue requests from four threads, and has an
 arbiter that selects one of them each cycle. Another 3 way arbiter selects one
 of the request types to send to the L2 cache.
 
-![]({{ site.url }}/assets/2016-11-30-image-0001.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0001.png)
 
 It is possible--although not likely--for a thread to have all three types of
 L2 requests pending. This means a core can have up to 4 threads * 3 requests =
@@ -301,13 +301,13 @@ also contains a mask, where each bit corresponds to a byte in the data field.
 These indicate that it should update that byte. The store queue entry is
 64-byte aligned, so executing a 32-bit scalar store might look like this:
 
-![]({{ site.url }}/assets/2016-11-30-image-0002.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0002.png)
 
 If another store for the same cache line comes in the store queue has sent it
 to the L2 cache, it will copy the new data into it. For example, after a
 second store, the store queue would contain:
 
-![]({{ site.url }}/assets/2016-11-30-image-0003.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0003.png)
 
 If it has already sent the store queue entry to the L2 cache, it's too late to
 write combine it. The thread rolls back and stalls.
@@ -351,7 +351,7 @@ allocate a new entry, I'll need to add logic to potentially bypass every
 single entry in the queue. Imagine something like this (I'm only showing 32
 byte lanes to make this fit):
 
-![]({{ site.url }}/assets/2016-11-30-image-0004.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0004.png)
 
 This implementation would need an n way mux for each of the 64 byte lanes in
 the store buffer (where n is the number of store queue entries). It would also
@@ -621,7 +621,7 @@ With that established, I can rerun 'clip' test I mentioned earlier with the
 new instrumentation. This is the chart from the post I cited at the beginning
 of this one that prompted this investigation.
 
-![]({{ site.url }}/assets/2016-11-30-image-0005.png)
+![]({{ site.url }}/images/2016-11-30-measure-twice-cut-once/image-0005.png)
 
 For this test, I'm running on 8 cores, 32 threads total. The original
 experiment increased the size of a 4MB L2 cache. The default cache size for

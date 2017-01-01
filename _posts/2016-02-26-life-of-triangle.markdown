@@ -36,7 +36,7 @@ documentation (figure 1, p. 13). I've simplified it a bit and removed
 components that aren't used for 3D rendering, i.e. general purpose computation
 and OpenVG.
 
-![]({{ site.url }}/assets/2016-02-26-image-0000.png)
+![]({{ site.url }}/images/2016-02-26-life-of-triangle/image-0000.png)
 
 ### Background
 
@@ -201,7 +201,7 @@ binning pass. The blue arrow represents the path of the vertex indices and the
 cyan the path of the vertex positions. The Primitive Tile Binner takes these
 two and writes a new control list back to memory via the light blue arrow.
 
-![]({{ site.url }}/assets/2016-02-26-image-0001.png)
+![]({{ site.url }}/images/2016-02-26-life-of-triangle/image-0001.png)
 
 At the end of the control list is a Halt command record (p. 66). When the
 Command List Executor reads it, it completes the binning pass. We now have a
@@ -218,7 +218,7 @@ the process, as described on page 62:
 
 The result looks something like this:
 
-![]({{ site.url }}/assets/2016-02-26-image-0002.png)
+![]({{ site.url }}/images/2016-02-26-life-of-triangle/image-0002.png)
 
 
 ### Rendering Pass
@@ -230,7 +230,7 @@ binning pass for the next frame starts running at the same time as the
 rendering pass for the current frame. The Control List Executor has two
 threads which execute these control lists concurrently.
 
-![]({{ site.url }}/assets/2016-02-26-image-0003.png)
+![]({{ site.url }}/images/2016-02-26-life-of-triangle/image-0003.png)
 
 The rendering pass starts out like the binning pass. The Vertex Cache Manager
 reads vertices into Vertex Pipe Memory and submits a request to the QPU

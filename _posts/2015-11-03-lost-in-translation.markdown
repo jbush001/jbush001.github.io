@@ -46,7 +46,7 @@ better detail.
 The cache is set-associative. A memory address is treated as follows (assuming
 the default 16k, 4-way cache size for this design):
 
-![]({{ site.url }}/assets/2015-11-03-image-0000.png)
+![]({{ site.url }}/images/2015-11-03-lost-in-translation/image-0000.png)
 
 In the original pipeline, a cache access occurs in two stages. The first stage
 reads from tag SRAM (which contains the upper 20 bits of the addresses of
@@ -131,7 +131,7 @@ address map to the same physical address). That way, I could measure the rough
 impact of TLB misses without making any other code changes. Here's the output
 from the emulator:
 
-![]({{ site.url }}/assets/2015-11-03-image-0001.png)
+![]({{ site.url }}/images/2015-11-03-lost-in-translation/image-0001.png)
 
 *Those with a sharp eye may be able to spot the subtle rendering artifacts...*
 
@@ -251,7 +251,7 @@ below this, the program livelocked. The four threads kept clobbering the
 mappings the other ones had entered, then faulted again as soon as they
 returned.
 
-![]({{ site.url }}/assets/2015-11-03-image-0002.png)
+![]({{ site.url }}/images/2015-11-03-lost-in-translation/image-0002.png)
 
 The horizontal scale is a bit weird here. The tick marks on the lines
 correspond to 16, 32, 64, 128, 256, and 512 entries..

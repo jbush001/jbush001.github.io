@@ -19,7 +19,7 @@ I added mipmapping support to the software renderer for my
 Here's a quick test image. This is a simple checkerboard rendered onto a
 square that has been stretched far into the Z direction.
 
-![]({{ site.url }}/assets/2014-12-21-image-0000.png)
+![]({{ site.url }}/images/2014-12-21-mip-mapping-in-one-line-of-code/image-0000.png)
 
 I've drawn each mip level with a different color in this experiment so it's
 clear where it switches levels. The TextureSampler maintains an array of
@@ -151,9 +151,9 @@ sampling at too low a frequency. The second image shows mipmapping enabled.
 It's subtle, but you can see that the image looks much smoother as it recedes
 into the distance.
 
-![]({{ site.url }}/assets/2014-12-21-image-0001.png)
+![]({{ site.url }}/images/2014-12-21-mip-mapping-in-one-line-of-code/image-0001.png)
 
-![]({{ site.url }}/assets/2014-12-21-image-0002.png)
+![]({{ site.url }}/images/2014-12-21-mip-mapping-in-one-line-of-code/image-0002.png)
 
 I'm still considering whether to implement a full hardware texture unit or
 perhaps specialized instructions to accelerate texture blending, but first I'd

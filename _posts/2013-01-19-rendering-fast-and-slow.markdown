@@ -103,7 +103,7 @@ writeback.
 
 Here is the result:
 
-![]({{ site.url }}/assets/2013-01-19-image-0000.png)
+![]({{ site.url }}/images/2013-01-19-rendering-fast-and-slow/image-0000.png)
 
 Something doesn't look right here. When I disable writeback the program should
 be doing less work.  However, the program ends taking about 20% _longer_.
@@ -124,7 +124,7 @@ start with a conclusion and try to make the data fit it.
 
 The first step was to profile the two instances by function:
 
-![]({{ site.url }}/assets/2013-01-19-image-0001.png)
+![]({{ site.url }}/images/2013-01-19-rendering-fast-and-slow/image-0001.png)
 
 The graphs are mostly the same except for two functions.  FillRects takes less
 time when writeback is disabled. That makes sense and is what I was expecting:

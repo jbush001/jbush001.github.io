@@ -24,7 +24,7 @@ Here's a simplified version of the QPU's compute pipeline from figure 2 (p.
 Guide](https://www.broadcom.com/docs/support/videocore/VideoCoreIV-
 AG100-R.pdf).
 
-![]({{ site.url }}/assets/2016-03-01-image-0000.png)
+![]({{ site.url }}/images/2016-03-01-videocore-qpu-pipeline/image-0000.png)
 
 The first notable thing about this diagram is that the main register file is
 split into two banks: regfile A and regfile B. Instructions encode which bank
@@ -59,14 +59,14 @@ one ever is--all latches on that row are connected to the bit lines via Q5 &
 Q6. The bit lines are read or written at the bottom or top edge of the array
 (when writing, the column drivers overpower the latch transistors).
 
-![]({{ site.url }}/assets/2016-03-01-image-0001.png)
+![]({{ site.url }}/images/2016-03-01-videocore-qpu-pipeline/image-0001.png)
 
 This port can read or write one value at a time. To perform an independent
 access in parallel, another port is needed. This requires an extra word line
 per row, a new pair of bit lines per column, and two additional transistors
 (Q7 & Q8) per cell to connect them:
 
-![]({{ site.url }}/assets/2016-03-01-image-0002.png)
+![]({{ site.url }}/images/2016-03-01-videocore-qpu-pipeline/image-0002.png)
 
 This makes everything physically larger, and the connecting wires longer,
 which uses more power.
@@ -106,7 +106,7 @@ Given these parameters, I can use the CACTI to characterize the register files
 (Note that the "Nr. of Banks" parameter for CACTI has a different meaning than
 "banks" as I've been referring to here, so I keep it 1).
 
-![]({{ site.url }}/assets/2016-03-01-image-0003.png)
+![]({{ site.url }}/images/2016-03-01-videocore-qpu-pipeline/image-0003.png)
 
 The result:
 
@@ -155,7 +155,7 @@ is an example of a design principle seen throughout this chip: keep every
 functional unit as busy as possible. This diagram from figure 3 (p. 27) shows
 how instructions are encoded:
 
-![]({{ site.url }}/assets/2016-03-01-image-0004.png)
+![]({{ site.url }}/images/2016-03-01-videocore-qpu-pipeline/image-0004.png)
 
 The add_a, add_b, mul_a, and mul_b fields control the four multiplexers in the
 center of the pipeline diagram above. These can select one of the accumulator

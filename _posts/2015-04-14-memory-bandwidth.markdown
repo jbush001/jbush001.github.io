@@ -25,7 +25,7 @@ to go back to writing software.
 
 The VGA controller and CPU share memory through an arbiter.
 
-![]({{ site.url }}/assets/2015-04-14-image-0000.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0000.png)
 
 The VGA controller connects to a digital to analog converter (DAC) that drives
 the analog red, blue, and green color signals to the monitor. It needs to
@@ -104,7 +104,7 @@ read transfer, and the s_rvalid (read data valid) indicates when the memory
 controller is responding with data.  Here is a waveform of this test running
 in Verilog simulation:
 
-![]({{ site.url }}/assets/2015-04-14-image-0001.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0001.png)
 
 There are a number of things going on here, but it's useful to look first at
 the m_arvalid signal. The distance between each processor request is 48
@@ -116,7 +116,7 @@ This test was only using one hardware thread. As we've seen in previous posts,
 hardware threads can improve utilization and hide memory latency. I modified
 the test to use four threads, fetching interleaved addresses:
 
-![]({{ site.url }}/assets/2015-04-14-image-0002.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0002.png)
 
 This test transfers an average of 2.3 bytes per cycle, utilizing about 57% of
 the memory bandwidth.  It fills a cache miss every 27 cycles.  This is much
@@ -144,7 +144,7 @@ added a print of the number of entries in this FIFO every clock cycle:
 {% endhighlight %}
 
 
-![]({{ site.url }}/assets/2015-04-14-image-0003.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0003.png)
 
 As you can see, this FIFO is never empty.  The execution pipeline is no longer
 a bottleneck and all of the remaining delay is inside the L2 cache.
@@ -161,7 +161,7 @@ They encode an arbitrary four bit operation, which is documented
 [here](https://en.wikipedia.org/wiki/Synchronous_dynamic_random-
 access_memory#Commands).
 
-![]({{ site.url }}/assets/2015-04-14-image-0004.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0004.png)
 
 The first gap is four cycles between point A & B.
 
@@ -212,7 +212,7 @@ dram_cs_n is low):
   * An activate command to open the new row
   * A read command to read the data, as in the previous examples
 
-![]({{ site.url }}/assets/2015-04-14-image-0005.png)
+![]({{ site.url }}/images/2015-04-14-memory-bandwidth/image-0005.png)
 
 One notable thing about this trace is that the commands aren't issued back to
 back. The datasheet for this part indicates that between the precharge and

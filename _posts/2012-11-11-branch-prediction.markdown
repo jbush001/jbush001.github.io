@@ -27,7 +27,7 @@ of memory from one area to another. I ran two versions of this in Verilog
 simulation, the results of which are shown in the chart below (lower is
 better).
 
-![]({{ site.url }}/assets/2012-11-11-image-0000.png)
+![]({{ site.url }}/images/2012-11-11-branch-prediction/image-0000.png)
 
 The top set of bars use a single hardware thread to perform the entire copy
 (2048 bytes). The bottom set of bars, like many of the benchmarks I was using,
@@ -49,7 +49,7 @@ strange that the processor must guess whether a branch is taken and does not
 just know, but it is actually a consequence of pipelining. This is a diagram
 of the first four stages of the execution pipeline:
 
-![]({{ site.url }}/assets/2012-11-11-image-0001.png)
+![]({{ site.url }}/images/2012-11-11-branch-prediction/image-0001.png)
 
 There are four hardware threads in this architecture, which I generally refer
 to as strands to avoid confusion with software threads. Each strand has its
@@ -125,7 +125,7 @@ and without branch prediction.  The horizontal axis represents time and the
 vertical axis shows the decode, and execute stages.  Each number represents
 the program counter of the instruction in that stage:
 
-![]({{ site.url }}/assets/2012-11-11-image-0002.png)
+![]({{ site.url }}/images/2012-11-11-branch-prediction/image-0002.png)
 
 This diagram is a bit busy, but the interesting part happens in cycle 4.  You
 can see that the pipeline on the top (without prediction) has fetched the
@@ -143,7 +143,7 @@ The next chart shows the same program running running four instances in
 multiple strands without branch prediction.  The instructions are numbered as
 before as before, but hardware strands are represented with different colors.
 
-![]({{ site.url }}/assets/2012-11-11-image-0003.png)
+![]({{ site.url }}/images/2012-11-11-branch-prediction/image-0003.png)
 
 The branch is still mispredicted, but it's not necessary to make a version of
 this diagram with branch prediction enabled because it won't look any
@@ -165,7 +165,7 @@ benchmark.  This graph shows the number of squashed instructions in each case,
 which is computed by subtracting the number of instructions that ran to
 completion from the number of instructions issued:
 
-![]({{ site.url }}/assets/2012-11-11-image-0004.png)
+![]({{ site.url }}/images/2012-11-11-branch-prediction/image-0004.png)
 
 Both the single and multi-threaded versions take the exact same number of
 mispredicted branches, but there are many more squashed instructions in the

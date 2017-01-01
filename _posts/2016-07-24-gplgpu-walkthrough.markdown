@@ -56,7 +56,7 @@ The project includes a [technical reference manual](https://github.com/asicguy
 /gplgpu/blob/master/docs/GPLGPU.docx?raw=true) that documents the programmers
 interface to the video card. I've simplified the block diagram from page 1-2:
 
-![]({{ site.url }}/assets/2016-07-24-image-0000.png)
+![]({{ site.url }}/images/2016-07-24-gplgpu-walkthrough/image-0000.png)
 
 Here's a quick overview of these components:
 
@@ -278,7 +278,7 @@ data on the hb_adr/hb_din signals--which correspond to address and data--are
 valid.  For example, here it writes command parameter 0 (vertex 0 X for a
 triangle command):
 
-![]({{ site.url }}/assets/2016-07-24-image-0001.png)
+![]({{ site.url }}/images/2016-07-24-gplgpu-walkthrough/image-0001.png)
 
 The de3d_reg ([hdl/de3d/de3d_reg.v](https://github.com/asicguy/gplgpu/blob/mas
 ter/hdl/de3d/de3d_reg.v)) module latches the value for all the 3D register
@@ -316,7 +316,7 @@ machines that start filling the triangle.
 
 Here's a block diagram of the 3D pipeline:
 
-![]({{ site.url }}/assets/2016-07-24-image-0002.png)
+![]({{ site.url }}/images/2016-07-24-gplgpu-walkthrough/image-0002.png)
 
 Every pipeline stage up to the pixel cache processes up to one pixel per
 cycle. This is different than VideoCore (and many other modern GPUs), which
@@ -488,7 +488,7 @@ along with a mask that indicates which pixels were covered.  Near the edge of
 a triangle, it's possible not all eight pixels overlap the triangle, in which
 case the 8 bit mask will indicate this.
 
-![]({{ site.url }}/assets/2016-07-24-image-0003.png)
+![]({{ site.url }}/images/2016-07-24-gplgpu-walkthrough/image-0003.png)
 
 ### Memory Controller
 

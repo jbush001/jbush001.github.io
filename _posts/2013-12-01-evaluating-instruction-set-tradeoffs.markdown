@@ -36,7 +36,7 @@ generation.  My experimental methodology is to disable usage of certain
 instruction set features, and measure the resulting performance of a compiled
 program.
 
-![]({{ site.url }}/assets/2013-12-01-image-0000.png)
+![]({{ site.url }}/images/2013-12-01-evaluating-instruction-set-tradeoffs/image-0000.png)
 
 The test program I used is a
 [3D renderer](https://github.com/jbush001/NyuziProcessor/tree/master/software/render-object)
@@ -148,7 +148,7 @@ the largest (28 registers) is around 20%, which is significant. The
 performance curve is relatively smooth: each additional register addition
 gives an incremental performance improvement:
 
-![]({{ site.url }}/assets/2013-12-01-image-0001.png)
+![]({{ site.url }}/images/2013-12-01-evaluating-instruction-set-tradeoffs/image-0001.png)
 
 The curve doesn't appear to be flattening too much near the maximum number of
 registers, which suggests continuing to add registers would result in

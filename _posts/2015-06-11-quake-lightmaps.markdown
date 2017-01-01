@@ -32,7 +32,7 @@ coordinates as vertex attributes.
 
 Here's a rendered frame with only texture mapping, no lighting:
 
-![]({{ site.url }}/assets/2015-06-11-image-0000.png)
+![]({{ site.url }}/images/2015-06-11-quake-lightmaps/image-0000.png)
 
 There is a relatively small amount of texture data for each level. Levels
 reuse textures all over the place, repeating them across each surface. You can
@@ -43,7 +43,7 @@ stored at low resolution: one sample every 16 pixels in texture space. Also,
 each sample is 8-bits. The next image shows just the lightmaps rendered for
 the scene above.
 
-![]({{ site.url }}/assets/2015-06-11-image-0001.png)
+![]({{ site.url }}/images/2015-06-11-quake-lightmaps/image-0001.png)
 
 It's harder to verify lightmaps are working correctly than it was with
 textures, because it's not as obvious when it is wrong. This looks mostly
@@ -59,7 +59,7 @@ lightmap value doesn't look right.
 Here are the same lightmaps with bilinear filtering enabled on the texture
 sampler, which removes the sharp edges.
 
-![]({{ site.url }}/assets/2015-06-11-image-0002.png)
+![]({{ site.url }}/images/2015-06-11-quake-lightmaps/image-0002.png)
 
 Now that I have the lightmap data available, I need to multiply it by each
 pixel in the texture. When id added hardware acceleration to Quake, desktop
@@ -113,7 +113,7 @@ multiply that intensity by the texel color.
 Here is the original scene with the lightmap applied: The effect is subtle,
 but looks much more realistic.
 
-![]({{ site.url }}/assets/2015-06-11-image-0003.png)
+![]({{ site.url }}/images/2015-06-11-quake-lightmaps/image-0003.png)
 
 *The four white dots on the right are a gap where the triangles don't fit
 together tightly. This is probably an issue in my rasterizer.*

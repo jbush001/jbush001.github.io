@@ -25,7 +25,7 @@ memory accesses. Both versions are running one core, so there are aspects of
 cache coherence traffic that aren't captured, but I'll get to that in a
 minute.
 
-![]({{ site.url }}/assets/2014-07-05-image-0000.png)
+![]({{ site.url }}/images/2014-07-05-write-back-vs-write-through-bake-off/image-0000.png)
 
 In this chart, the top bar represents the version 1 write through
 architecture. The number of read misses are roughly comparable. The green

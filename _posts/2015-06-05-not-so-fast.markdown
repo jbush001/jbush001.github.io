@@ -47,7 +47,7 @@ Quake .PAK file and is optimized for this architecture. It packs all the
 textures into a texture atlas, which is relatively small given the era of the
 game (all the textures fit in a 1024x1024 atlas at the largest mipmap level).
 
-![]({{ site.url }}/assets/2015-06-05-image-0000.png)
+![]({{ site.url }}/images/2015-06-05-not-so-fast/image-0000.png)
 
 The renderer also converts all the polygons in each leaf BSP node into a
 vertex attribute array so it can render a leaf with a single draw call. The
@@ -111,7 +111,7 @@ pixels in parallel using the vector unit. Lanes that aren't covered by a pixel
 are unused for that call. This architecture can have up to 15 unused pixels in
 the worst case where the triangle only covers one pixel of the group.
 
-![]({{ site.url }}/assets/2015-06-05-image-0001.png)
+![]({{ site.url }}/images/2015-06-05-not-so-fast/image-0001.png)
 
 Most GPUs process pixels in 2x2 chunks, so they may have up to 3 unused
 pixels. However the problem is worse on this architecture because of the
@@ -219,7 +219,7 @@ call to fillMasked takes 386 instructions, or 38 instructions per pixel on
 average. That's still quite a bit, but makes a strong argument to investigate
 hardware texture sampling.
 
-![]({{ site.url }}/assets/2015-06-05-image-0002.png)
+![]({{ site.url }}/images/2015-06-05-not-so-fast/image-0002.png)
 
 I've done a bunch of algorithmic improvements to the renderer, including:
 

@@ -37,7 +37,7 @@ patterns move from low to high addresses from left to right in the color and z
 buffers. We can see heavy memory accesses in the program and stack areas (note
 that the program area also contains read only geometry and texture data)
 
-![]({{ site.url }}/assets/2013-12-08-image-0000.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0000.png)
 
 In the next diagram, I have zoomed in so that each pixel horizontally
 represents one memory access.  The entire trace here is represents one pixel
@@ -53,27 +53,27 @@ address.  The patterns are caused by the threads marching forward in lockstep.
 The gaps between the horizontal bands indicate branches.  The scattered dots
 on the top are accesses to global data structures or read-only data.
 
-![]({{ site.url }}/assets/2013-12-08-image-0001.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0001.png)
 
 In the next diagram, I've zoomed out a bit. The vertical scale is the same,
 but the horizontal scale now represents 10 memory accesses.  A different
 pattern emerges, with many small clusters.  The branches occur more frequently
 across the horizontal scale now, which causes more vertical separation:
 
-![]({{ site.url }}/assets/2013-12-08-image-0002.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0002.png)
 
 Zooming out to 100 memory accesses per horizontal pixel and equivalent
 vertical scale, form begins to disappear and the display looks more like a
 random bunch of dots.
 
-![]({{ site.url }}/assets/2013-12-08-image-0003.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0003.png)
 
 Now I've zoomed in on the stack area, which is the next band up in the
 original diagram.  In this case, I'm viewing the entire stack area, with 100
 memory accesses per pixel horizontally.  We can now see that there are four
 stacks (for the four hardware threads):
 
-![]({{ site.url }}/assets/2013-12-08-image-0004.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0004.png)
 
 Zooming in even closer so the vertical axis covers only one thread and the
 horizontal axis represents one pixel per memory access, we can start to see
@@ -84,7 +84,7 @@ side of the trace. The thread presumably is in an inner loop inside of a
 function and working completely within registers, this not requiring stack
 accesses:
 
-![]({{ site.url }}/assets/2013-12-08-image-0005.png)
+![]({{ site.url }}/images/2013-12-08-memory-access-visualization/image-0005.png)
 
 Although most programmers probably have intuitive mental models they use to
 imagine how programs access memory and caches, the visualizations here

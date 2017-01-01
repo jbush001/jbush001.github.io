@@ -34,7 +34,7 @@ The nice thing about the instruction set simulator (emulator) is that I can
 instrument at a fairly fine grained level.  Here is breakdown of instructions
 by type:
 
-![]({{ site.url }}/assets/2014-12-01-image-0000.png)
+![]({{ site.url }}/images/2014-12-01-doom/image-0000.png)
 
 Interestingly, this matches the instruction profile of the 3D teapot renderer
 I wrote within a few percent:

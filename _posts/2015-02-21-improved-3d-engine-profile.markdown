@@ -105,8 +105,8 @@ large for an individual texture, but simulates the common case of the texture
 working set for a frame being larger than the cache.  The L2 cache is
 configured as 128k, and the L1 instruction and data caches are each 16k.
 
-<img width="300" src="{{ site.url }}/assets/2015-02-21-image-0000.png" />
-<img width="300" src="{{ site.url }}/assets/2015-02-21-image-0001.png" />
+<img width="300" src="{{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0000.png" />
+<img width="300" src="{{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0001.png" />
 
 #### Basic Metrics
 
@@ -148,7 +148,7 @@ of code and measured the difference in execution time. :) Since each stage in
 the rendering pipeline depends on the results from the last, I worked
 backwards, tabulating total clock cycles in a spreadsheet:
 
-![]({{ site.url }}/assets/2015-02-21-image-0002.png)
+![]({{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0002.png)
 
 A few observations:
 
@@ -194,11 +194,11 @@ The checkerboard is computed programmatically in the pixel shader and does not
 use a texture. The geometry for this is the inside of a cube, so the vertex
 calculations have low overhead.
 
-![]({{ site.url }}/assets/2015-02-21-image-0003.png)
+![]({{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0003.png)
 
 This chart shows the relative speedup as cores are added.  The orange line
 shows a linear speedup for reference. ![]({{ site.url
-}}/assets/2015-02-21-image-0004.png)
+}}/images/2015-02-21-improved-3d-engine-profile/image-0004.png)
 
 There are most likely two reasons why performance saturates. First, there is
 more lock overhead.  This primarily occurs:
@@ -221,14 +221,14 @@ cycles new requests are queued into the L2 pipeline.  The interface is not
 saturated, and interestingly falls off at 8 cores, presumably because some
 other bottleneck has begun to degrade performance.
 
-![]({{ site.url }}/assets/2015-02-21-image-0005.png)
+![]({{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0005.png)
 
 This graph shows the average amount of time hardware threads spend in various
 states.  As expected, the amount of time waiting because the store buffer
 (orange) is full increases as the number of cores increase, a consequence of
 the write-through design.
 
-![]({{ site.url }}/assets/2015-02-21-image-0006.png)
+![]({{ site.url }}/images/2015-02-21-improved-3d-engine-profile/image-0006.png)
 
 Because this is not doing texturing and the caches are fairly large, the
 dcache miss time is negligible.

@@ -52,7 +52,7 @@ operation like addition or bitwise logical and has a latency of 3 cycles
 (versus 1 previously).  A floating point add or multiply has a latency of 7
 cycles (versus 4 previously).
 
-![]({{ site.url }}/assets/2014-05-27-image-0000.png)
+![]({{ site.url }}/images/2014-05-27-keeping-score/image-0000.png)
 
 This design hides latency by using multiple hardware threads.  When a thread
 is suspended on a long latency result, other threads can be scheduled.  The
@@ -101,7 +101,7 @@ data for the model).
 I ran two tests: one with the scoreboard active and one with it disabled by
 setting the dependency bitmap to all ones.  Here are the results:
 
-![]({{ site.url }}/assets/2014-05-27-image-0001.png)
+![]({{ site.url }}/images/2014-05-27-keeping-score/image-0001.png)
 
 The "speed of light" (a term a hardware designer I knew liked to use)
 represents the minimum number of instructions that must execute to finish the

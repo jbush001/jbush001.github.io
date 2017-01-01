@@ -61,11 +61,11 @@ jobs:
 
 The pipeline looks like this:
 
-![]({{ site.url }}/assets/2012-11-30-image-0000.png)
+![]({{ site.url }}/images/2012-11-30-waiting-in-line/image-0000.png)
 
 The Verilog simulation renders this rather unimpressive looking cube:
 
-![]({{ site.url }}/assets/2012-11-30-image-0001.png)
+![]({{ site.url }}/images/2012-11-30-waiting-in-line/image-0001.png)
 
 As it turns out, the performance of this implementation is not great.  It
 takes about 82,000 machine cycles to complete rendering the object into a
@@ -80,7 +80,7 @@ instructions and tabulating results (by function) with a script. The results
 aren't unexpected, but I was a bit surprised just how much synchronization
 overhead there was:
 
-![]({{ site.url }}/assets/2012-11-30-image-0002.png)
+![]({{ site.url }}/images/2012-11-30-waiting-in-line/image-0002.png)
 
 Almost a third of the time is spent just acquiring the spinlock.  If we add
 the other runtime functions (AllocJob, EnqueueJob, and StrandMain), over
