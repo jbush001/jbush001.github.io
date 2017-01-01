@@ -115,7 +115,7 @@ but looks much more realistic.
 
 ![]({{ site.url }}/assets/2015-06-11-image-0003.png)
 
-*The four white dots __on the right __are a gap where the triangles don't fit
+*The four white dots on the right are a gap where the triangles don't fit
 together tightly. This is probably an issue in my rasterizer.*
 
 It also requires more instructions: about 30 million to render the first frame

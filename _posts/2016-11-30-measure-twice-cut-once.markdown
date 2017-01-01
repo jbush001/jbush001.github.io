@@ -394,32 +394,32 @@ perform event and performance logging. I added this to
 
 {% highlight verilog %}
 {% raw %}
-    int total_loads;
-    int loads_bypassed;
+int total_loads;
+int loads_bypassed;
 
-    always_ff @(posedge clk, posedge reset)
+always_ff @(posedge clk, posedge reset)
+begin
+    if (reset)
     begin
-        if (reset)
+        total_loads <= 0;
+        loads_bypassed <= 0;
+    end
+    else
+    begin
+        if (dd_instruction_valid && !dd_instruction.is_cache_control
+            && dd_instruction.is_load && !wb_rollback_en)
         begin
-            total_loads <= 0;
-            loads_bypassed <= 0;
-        end
-        else
-        begin
-            if (dd_instruction_valid && !dd_instruction.is_cache_control
-                && dd_instruction.is_load && !wb_rollback_en)
-            begin
-                total_loads <= total_loads + 1;
-                if (sq_store_bypass_mask != 0)
-                    loads_bypassed <= loads_bypassed + 1;
-            end
+            total_loads <= total_loads + 1;
+            if (sq_store_bypass_mask != 0)
+                loads_bypassed <= loads_bypassed + 1;
         end
     end
+end
 
-    final
-    begin
-        $display("%0d total loads %0d bypassed", total_loads, loads_bypassed);
-    end
+final
+begin
+    $display("%0d total loads %0d bypassed", total_loads, loads_bypassed);
+end
 {% endraw %}
 {% endhighlight %}
 
@@ -525,16 +525,16 @@ ensure it's writing as quickly as possible.
 
 {% highlight c %}
 {% raw %}
-    for (i = 0; i < 100; i++)
-    {
-        *((volatile int*) region_1_base) = 0x12345678;
-        *((volatile int*) region_2_base) = 0x12345678;
-        *((volatile int*) region_1_base) = 0x12345678;
-        *((volatile int*) region_2_base) = 0x12345678;
-        *((volatile int*) region_1_base) = 0x12345678;
-        *((volatile int*) region_2_base) = 0x12345678;
-        // (20 writes total)
-    }
+for (i = 0; i < 100; i++)
+{
+    *((volatile int*) region_1_base) = 0x12345678;
+    *((volatile int*) region_2_base) = 0x12345678;
+    *((volatile int*) region_1_base) = 0x12345678;
+    *((volatile int*) region_2_base) = 0x12345678;
+    *((volatile int*) region_1_base) = 0x12345678;
+    *((volatile int*) region_2_base) = 0x12345678;
+    // (20 writes total)
+}
 {% endraw %}
 {% endhighlight %}
 

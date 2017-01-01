@@ -290,11 +290,11 @@ The generated shader code would presumably look like this:
 
     # Compute fragTexCoord.s
     fmul r0, VARYING_READ, W   # VP * W
-    fadd r0, r0, r5            # \+ C
+    fadd r0, r0, r5            # + C
 
     # Compute fragTexCoord.t
     fmul r1, VARYING_READ, W   # VP * W
-    fadd r1, r1, r5            # \+ C
+    fadd r1, r1, r5            # + C
 
     # Send to texture unit
     mov TMU0_T, r1             # Set T

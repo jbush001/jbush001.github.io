@@ -15,8 +15,9 @@ blogger_orig_url: http://latchup.blogspot.com/2016/07/gplgpu-walkthrough.html
 
 A few years ago, an interesting kickstarter projected popped up:
 
-https://www.kickstarter.com/projects/725991125/open-source-graphics-processor-
-gpu
+[https://www.kickstarter.com/projects/725991125/open-source-graphics-processor-
+gpu](https://www.kickstarter.com/projects/725991125/open-source-graphics-processor-
+gpu)
 
 The goal was to publish source code to a GPU that is register compatible with
 the late 90's era [Number
@@ -330,7 +331,7 @@ raster positions. But the rasterizer uses edge equations. It is the job of the
 des_grad module ([hdl/de3d/des_grad.v](https://github.com/asicguy/gplgpu/blob/
 master/hdl/de3d/des_grad.v)) to compute these values (gradients). The des_reg
 module latched those the vertex positions when the CPU wrote them as described
-above. All of these values are routed in parallel (488 bits per vertex) into
+above. All of these values are routed in parallel (448 bits per vertex) into
 the des_grad module:
 
 {% highlight verilog %}

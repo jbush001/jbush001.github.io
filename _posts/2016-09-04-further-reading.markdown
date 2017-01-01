@@ -124,7 +124,7 @@ analysis of VideoCore and GPLGPU:
     prefetch_comp.pdf). It's helpful to see a clean implementation of this
     algorithm. It would be interesting to compare this in more detail with the
     texture cache in GPLGPU, which was implemented before that paper came out.
-  * **Alpha Blending/Writeback **The modules
+  * **Alpha Blending/Writeback** The modules
     tmu2_fdest/tmu2_alpha/tmu2_burst/tmu2_pixout handle alpha blending and
     memory access. This operates similar to the memory controller I discussed
     in the [GPLGPU walkthrough]({{ site.baseurl }}{% post_url
