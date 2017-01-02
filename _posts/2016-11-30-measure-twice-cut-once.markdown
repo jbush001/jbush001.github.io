@@ -688,15 +688,15 @@ can it send another, or should it wait for the first to complete?*
 entry that it has already sent to the L2 cache (but not completed), and thus
 cannot write combine, what does it do:*
 
-    This is fuzzier. The data from my last test showed that entries spend at least
-    50% of their time in the WAIT_L2_RESPONSE state, and even the worst case it is
-    20%. Only 10% of transactions are write combined for the test workload, but it
-    may increase with more store buffer entries. However, the incremental
-    complexity of doing this seems (at first blush) to be moderate, so it's worth
-    implementing and testing.
+    This is fuzzier. The data from my last test showed that entries spend at
+    least 50% of their time in the WAIT_L2_RESPONSE state, and 20% even in the
+    best case. But only 10% of transactions are write combined for the test
+    workload. This may increase with more store buffer entries. The incremental
+    complexity of doing this seems to be moderate at first blush, so it's
+    worth implementing and testing.
 
-I'm don't know how much of a performance win this design change would net.
-This doesn't seem like a clear win. Unfortunately, it's not easy to know the
+I don't know how much of a performance win this design change would net. It
+doesn't seem like a clear win. Unfortunately, it's not easy to know the
 implications of a non-trivial design decision without implementing and testing
 it with complex workloads.
 
