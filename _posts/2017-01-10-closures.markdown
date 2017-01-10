@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Closures
-date: '2016-01-10T06:32:00.000-08:00'
+date: '2017-01-10T06:32:00.000-08:00'
 author: Jeff
 tags:
 - lisp
