@@ -32,6 +32,7 @@ language.
 
 My implementation differs in some fundamental ways from the one described in
 this paper:
+
 - I store my program as an array of instructions rather than in lists. Using
   lists as the processor described in this paper did was an unorthodox choice,
   and subsequent commercial lisp machines did not follow this approach (the [CADR](ftp://publications.ai.mit.edu/ai-publications/pdf/AIM-528.pdf)
