@@ -12,16 +12,16 @@ I enjoyed the book, but one section struck me in particular. The author, who run
 relates a story of a customer who brought him an
 83 [Honda Magna](https://en.wikipedia.org/wiki/Honda_Magna) V45 motorcycle
 that had been sitting in storage for years and wouldn't start. After
-unsuccessfully trying to talk the owner out of it, he discovers and repairs the
-problem that is keeping the bike from starting. But he notices the bike also
-has a small oil leak. On the one hand, he feels a responsibility to owner to
+unsuccessfully trying to talk the owner out of it, he discovered and repaired the
+problem that was keeping the bike from starting. But he noticed the bike also
+had a small oil leak. On the one hand, he felt a responsibility to owner to
 get the bike--which wasn't worth the money it would take to repair it in the
 first place--working with the smallest amount of billable labor as possible.
-But he also feels what he describes as a selfish need to fix it correctly. He
+But he also felt what he describes as a selfish need to fix it correctly. He
 laments that "this lust for thoroughness was at odds with the work of human
 concerns in which the bike is situated, where all that matters is that the bike
-works." He finally succumbs and replaces the seal, a much larger job requiring
-disassembly of most of the engine, but out of guilt doesn't charge the owner
+works." He finally succumbed and replaced the seal, a much larger job requiring
+disassembly of most of the engine, but out of guilt didn't charge the owner
 for much of the labor. He comments:
 
 > One theologian writes that "curiosity's desire is closed, limited by the object
