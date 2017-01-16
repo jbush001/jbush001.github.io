@@ -293,5 +293,5 @@ be more efficient than stepping one index at a time.
 
 It would be possible to use more sophisticated optimizations, like caching
 indices and avoiding a binary search in some cases. But these would harder to
-test, and it's not clear that there would be a large performance win, so I lean
+test, and it's not clear that there would be a large performance win, so I leaned
 on the side of simplicity.
