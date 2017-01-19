@@ -130,7 +130,7 @@ $$
 $$
 
 This is referred to as a linear combination of the columns, and is a fundamental
-idea in [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra).
+idea in [Linear Algebra](https://www.khanacademy.org/math/linear-algebra).
 We can rearrange it like this:
 
 $$
