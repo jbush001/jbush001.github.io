@@ -129,8 +129,9 @@ $$
 \end{equation}
 $$
 
-This is referred to as a linear combination of the columns, which is a fundamental
-idea in Linear Algebra. We can rearrange it like this:
+This is referred to as a linear combination of the columns, and is a fundamental
+idea in [Linear Algebra](https://en.wikipedia.org/wiki/Linear_algebra).
+We can rearrange it like this:
 
 $$
 \begin{equation}
@@ -155,8 +156,8 @@ $$
 \end{equation}
 $$
 
-These are all equivalent to other ways multiplying matrices and vectors,
-they just give us another way of thinking about the operation.
+These are all equivalent to other descriptions of how to multiply matrices and
+vectors, they just give us another way of thinking about the operation.
 
 A few other properties of vectors are useful to understand:
 
@@ -172,11 +173,11 @@ units along the y axis, and z units along the z axis. It looks like this:
 
 ![]({{ site.url }}/images/2017-01-18-visualizing-3d-matrix-rotations/add-vectors.png)
 
-*The three vectors are still at right angles to each other.*
+*Although it may be hard to see on this plot, the three vectors are still at right angles to each other.*
 
 A 3D rotation matrix transforms a point from one coordinate system to another.
-The matrix is to take a coordinate in the inner coordinate system described
-by the 3 vectors and and find its location in the outer coordinate system.
+The matrix takes a coordinate in the inner coordinate system described
+by the 3 vectors and and finds its location in the outer coordinate system.
 
 We can extend this model to think about *concatenating* rotation matrices. When
 we multiply two rotation matrices, the result is a new matrix that is
