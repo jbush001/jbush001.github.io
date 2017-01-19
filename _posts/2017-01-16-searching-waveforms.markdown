@@ -283,7 +283,7 @@ public long getNextMatch(long startTimestamp) {
 {% endhighlight %}
 
 The advantage of this approach is that the example above only needed to
-evaluate the search expression at only two timestamps, rather than the six it
+evaluate the search expression at two timestamps, rather than the six it
 would need to have if it had checked at every transition after the cursor. On
 the flip side, each time this checks a new timestamp, it must do a binary
 search on each signal referenced to find the value at the new time. For *a*,
