@@ -80,6 +80,7 @@ Plotting these three vectors reveals something interesting:
 ![]({{ site.url }}/images/2017-01-18-visualizing-3d-matrix-rotations/vectors.png)
 
 To wit:
+
 - Each of these vectors is the same length (they are length 1 in this case
   because the matrix is not scaled)
 - All the vectors are at right angles to each other.
