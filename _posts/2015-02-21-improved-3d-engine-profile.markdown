@@ -64,11 +64,11 @@ complete before the pixel phase begins.
   2. Triangle setup. This is also divided between threads on a first come,
   first serve basis. It is not vectorized because it deals with a lot of data
   structures.
-    * Near plane clipping - Ensure there are no negative Z values, which would mess up perspective calculations. This operation may split triangles into multiple smaller ones.
-    * Backface culling
-    * Perspective division
-    * Conversion from screen space to raster coordinates
-    * Binning. An axis-aligned bounding box test is used to determine which tiles a triangle potentially overlaps. Each tile has an list of triangles (actually a linked list of arrays), which is used by the next phase.  Lock-free algorithms are used to quickly allocate data structures and insert them into the tile lists.
+        * Near plane clipping - Ensure there are no negative Z values, which would mess up perspective calculations. This operation may split triangles into multiple smaller ones.
+        * Backface culling
+        * Perspective division
+        * Conversion from screen space to raster coordinates
+        * Binning. An axis-aligned bounding box test is used to determine which tiles a triangle potentially overlaps. Each tile has an list of triangles (actually a linked list of arrays), which is used by the next phase.  Lock-free algorithms are used to quickly allocate data structures and insert them into the tile lists.
 
 #### Pixel phase
 
@@ -88,10 +88,11 @@ list. It performs the following steps:
   simultaneously. When it gets to the smallest level (4x4 pixels), it performs
   the following steps with each pixel represented in one lane of the vector (up
   to 16 at a time)
-    * Depth buffer/early reject
-    * Parameter interpolation - The parameters that were computed per-vertex by the vertex shader are interpolated for all pixels in-between.  This is done in a perspective correct manner.
-    * Pixel shading - As with the vertex shader, this is configurable via function pointer and can be set per draw call.
-    * Blend/writeback
+        * Depth buffer/early reject
+        * Parameter interpolation - The parameters that were computed per-vertex by the vertex shader are interpolated for all pixels in-between.  This is done in a perspective correct manner.
+        * Pixel shading - As with the vertex shader, this is configurable via function pointer and can be set per draw call.
+        * Blend/writeback
+
   4. Flush tile back to system memory - loop over all overlapped cache lines and invoke flush instruction on each address.
 
 ## Performance
