@@ -110,54 +110,36 @@ $$
 
 One way of thinking about matrix/vector multiplication is that we are taking each
 column of the matrix and multiplying it by the corresponding row of the vector,
-then adding the resulting vectors together. I've color coded the parts that
-are multiplied together here:
-
-$$
-\begin{equation}
-\left[ \begin{array}{ccc}
-    {\color{red}{0.962}} & {\color{blue}{-0.192}} & {\color{green}{0.192}}  \\
-    {\color{red}{0.272}} & {\color{blue}{0.680}} & {\color{green}{-0.680}}  \\
-    {\color{red}{0.0}} & {\color{blue}{0.707}} & {\color{green}{-0.707}}
-\end{array} \right]
-
-\left[ \begin{array}{c}
-    {\color{red}x} \\
-    {\color{blue}y} \\
-    {\color{green}z}
-\end{array} \right]
-\end{equation}
-$$
-
-This is referred to as a linear combination of the columns, and is a fundamental
-idea in [Linear Algebra](https://www.khanacademy.org/math/linear-algebra).
+then adding the resulting vectors together. This is referred to as a linear
+combination of the columns, and is a fundamental idea in
+[Linear Algebra](https://www.khanacademy.org/math/linear-algebra).
 We can rearrange it like this:
 
 $$
 \begin{equation}
-{\color{red}x}
+{x}
 \left[ \begin{array}{c}
-    {\color{red}{0.962}} \\
-    {\color{red}{0.272}} \\
-    {\color{red}{0.0}}
+    {0.962} \\
+    {0.272} \\
+    {0.0}
 \end{array} \right]
-+ {\color{blue}y}
++ {y}
 \left[ \begin{array}{c}
-    {\color{blue}{-0.192}} \\
-    {\color{blue}{0.680}} \\
-    {\color{blue}{0.707}}
+    {-0.192} \\
+    {0.680} \\
+    {0.707}
 \end{array} \right]
-+ {\color{green}z}
++ {z}
 \left[ \begin{array}{c}
-    {\color{green}{0.192}} \\
-    {\color{green}{-0.680}} \\
-    {\color{green}{-0.707}}
+    {0.192} \\
+    {-0.680} \\
+    {-0.707}
 \end{array} \right]
 \end{equation}
 $$
 
-These are all equivalent to other descriptions of how to multiply matrices and
-vectors, they just give us another way of thinking about the operation.
+This is equivalent to other descriptions of how to multiply matrices and
+vectors, it just gives us another way of thinking about the operation.
 
 A few other properties of vectors are useful to understand:
 
