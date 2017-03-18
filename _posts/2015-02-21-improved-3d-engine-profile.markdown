@@ -36,7 +36,7 @@ Tiled rendering has a few advantages:
   * **External memory bandwidth** The framebuffer is larger than the cache. If
     triangles were rendered in the order they were submitted, the cache would
     most likely thrash. In a tiled renderer, the active set of tiles fits
-    entirely in the cache. Each byte in the framebuffer is ideally be written
+    entirely in the cache. Each byte in the framebuffer is ideally written
     to external memory only once.
   * **Scaling** In order to fully utilize cores/threads, the workload needs to
     be divided into smaller tasks. Tiles are a convenient unit of work. The
