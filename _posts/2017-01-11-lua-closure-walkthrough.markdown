@@ -173,8 +173,9 @@ UpVal *luaF_findupval (lua_State *L, StkId level) {
 {% endraw %}
 {% endhighlight %}
 
-This checks to see if there is already an upval for this local variable (line 6-14). If so,
-it returns it so all closures share it. If not, it creates a new one and adds
+This checks to see if there is already an upval for this local variable (line 6-14).
+This would happen if code before the current instruction had referenced it. If so,
+it returns the existing one so all closures share it. If not, it creates a new one and adds
 it to a list 'L->openupval' associated with the function (line 3, 19). It also makes the
 pointer uv->v point to the local variable (passed in 'level'), line 18 which in the
 previous listing (line 14) was set to the stack slot (base + GETARG_B(*pc))
