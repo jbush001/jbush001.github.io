@@ -101,20 +101,19 @@ that there is value to having constants encoded.
 
 ### Mixing Vector and Scalar Operands
 
-One of the features of this instruction set that differs from more
-conventional vector architectures--at least the ones that I have studied--is
+One of the features of this instruction set that differs from some more
+conventional vector architectures is
 the ability to mix vector and scalar operands. For example:
 
     add_i v0, v2, s1
 
-In this case, the value in scalar register s1 is duplicated across all lanes.
-There are a number of examples of places where this is useful, for example
-when loop values are shared among parallel instances of an execution kernel,
-or for 'uniform' variables like information about directional lights. The
-tradeoff of this feature, as before, is that several additional instruction
+In this example, the value in scalar register s1 is duplicated across all lanes.
+There are a number of instances where this is useful, for example,
+when loop values or parameters are shared among parallel instances of an
+execution kernel. The tradeoff, as before, is that several additional instruction
 bits are needed to encode the types of the instruction operands.
 
-Static analysis of the code shows that this feature isn't frequently used
+Static analysis of the code shows that this feature isn't used a lot
 across the entire program, but is used often within core routines that are
 executed frequently. Disabling this feature requires one extra instruction per
 use to copy the value from a scalar to vector register first.  Running an
@@ -126,7 +125,7 @@ performance increase.
 
 *(Lower is better)*
 
-Register transfer instructions are relative cheap (compared to memory
+Register transfer instructions are relatively cheap (compared to memory
 operations, for example), so I would expect the impact in a real system to be
 even smaller.
 
