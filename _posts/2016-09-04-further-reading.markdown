@@ -223,5 +223,5 @@ motivator for MIAOW's creation is the belief that software simulators of
 hardware such as CPUs and GPUs often miss many subtle aspects that can skew
 the performance, power, and other quantitative results that they produce."_
 Creating synthesizable hardware ensures they accurately model hardware
-tradeoffs for their design decisions and can't inadvertently "cheat" like
+tradeoffs for their design decisions and can't unwittingly "cheat" like
 software simulators can.
