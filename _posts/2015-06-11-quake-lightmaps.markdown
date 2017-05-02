@@ -62,11 +62,11 @@ sampler, which removes the sharp edges.
 ![]({{ site.url }}/images/2015-06-11-quake-lightmaps/image-0002.png)
 
 Now that I have the lightmap data available, I need to multiply it by each
-pixel in the texture. When id added hardware acceleration to Quake, desktop
-GPUs didn't support programmable shaders, so they needed some machinations to
+pixel in the texture. When John Carmack added hardware acceleration to Quake,
+desktop GPUs didn't support programmable shaders, so they needed some machinations to
 support lighting. Since my rendering engine does support shaders, the
-implementation is simpler. The pixel shader is below, with new code **bolded.
-**As described in previous posts, this works on 16 pixels at a time.
+implementation is simpler. The pixel shader is below.
+As described in previous posts, this works on 16 pixels at a time.
 
 {% highlight c++ %}
 {% raw %}
