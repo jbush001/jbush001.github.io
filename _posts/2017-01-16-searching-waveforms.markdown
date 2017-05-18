@@ -243,7 +243,7 @@ hint:
 The OR node follows similar logic, but reversed. This scheme allows combining an
 arbitrary series of AND, OR, and comparison expressions.
 
-Back to our example: by virtual of rule #1, the next timestamp it checks after
+Back to our example: by virtue of rule #1, the next timestamp it checks after
 5 is 30 (largest 30 and 10). At that point, the comparison for node *a* is
 true, but *b* is still false. Using rule #2, the next hint for the AND
 expression would be the next transition for *b*, which is at time 35. At that
