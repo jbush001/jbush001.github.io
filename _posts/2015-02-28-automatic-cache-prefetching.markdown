@@ -206,7 +206,7 @@ no longer true.  We didn't really measure memory interface utilization in this
 test, although it's probably safe to infer that hardware multithreading also
 improves memory utilization. Rule 3 states that the operation should occur
 most of the time anyway. In the most degenerate benchmarks I ran, this is not
-true: the vector write optimization skips the operation often in some cases.
+true: the vector write optimization skips the operation often in the test case.
 
 There are other experiments I could have run.  For example, it might be
 interesting to disable the vector write optimization to see if there was a
