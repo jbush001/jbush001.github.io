@@ -92,4 +92,4 @@ demonstrate how complex program behavior can be (and this is a relatively
 simple program compared to something like a web browser or operating system).
 It suggests that a single mental model is probably not sufficient and that
 thinking about behavior at multiple timescales and in terms of different
-memory regions may be a better way of understanding behavior.
+memory regions may be a better way of understanding it.
